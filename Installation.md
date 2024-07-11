@@ -80,3 +80,6 @@ systemctl start prometheus
 systemctl enable prometheus
 systemctl status prometheus
 ```
+### ## Once the prometheus is installed you can access it on https://<server>:9090
+
+![image](https://github.com/satwash/Prometheus/assets/134083826/84da37fa-ad93-4d2d-bbb8-3a3aaeb1a95d)
