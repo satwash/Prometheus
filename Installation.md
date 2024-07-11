@@ -40,14 +40,19 @@ cp -r /root/prometheus-2.40.1.linux-amd64/console_libraries /etc/prometheus
 chown -R prometheus:prometheus /etc/prometheus/consoles
 chown -R prometheus:prometheus /etc/prometheus/console_libraries
 ```
-### Move prometheus.yml file to /etc/prometheus directory:
+### Move " prometheus.yml " file to " /etc/prometheus directory ":
 ```sh
 cp /root/prometheus-2.40.1.linux-amd64/prometheus.yml /etc/prometheus/prometheus.yml
 ```
-### Change the ownership of file /etc/prometheus/prometheus.yml:
+### Change the ownership of file " /etc/prometheus/prometheus.yml ":
 ```sh
 chown prometheus:prometheus /etc/prometheus/prometheus.yml
 ```
+### Create a service for prometheus:
+```sh
+vi /etc/systemd/system/prometheus.service
+```
+
 ### prometheus.service contents:
 ```sh
 [Unit]
