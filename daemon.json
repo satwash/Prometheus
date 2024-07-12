@@ -1,0 +1,4 @@
+{
+    "metrics-addr" : "<docker_host_ip>:<port_to_expose_logs(9323)>",
+    "experimental" : true
+}
