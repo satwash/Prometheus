@@ -1,5 +1,4 @@
-## Docker Engine monitoring
-  
+## Docker Engine monitoring(Docker Host monitoring)
 ### Create/edit /etc/docker/daemon.json file:
 ```sh
 vi /etc/docker/daemon.json
@@ -19,3 +18,18 @@ systemctl restart docker
 ```sh
 curl localhost:9323/metrics
 ```
+### Edit "/etc/prometheus/prometheus.yml" file on Prometheus server:
+```sh
+vi /etc/prometheus/prometheus.yml
+```
+### Add below given lines under "scrape_configs":
+```sh
+  - job_name: "docker"
+    static_configs:
+      - targets: ["<Docker_host>:9323"]
+```
+### Restart prometheus service:
+```sh
+systemctl restart prometheus
+```
+
