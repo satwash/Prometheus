@@ -33,11 +33,13 @@ vi /etc/systemd/system/pushgateway.service
 Description=Prometheus Pushgateway
 Wants=network-online.target
 After=network-online.target
+
 [Service]
 User=pushgateway
 Group=pushgateway
 Type=simple
 ExecStart=/usr/local/bin/pushgateway
+
 [Install]
 WantedBy=multi-user.target
 ```
@@ -47,4 +49,17 @@ systemctl daemon-reload
 systemctl start prometheus
 systemctl enable prometheus
 systemctl status prometheus
+```
+
+## Configure Prometheus to scrape the PushGateway
+### Add below lines under scrape_configs:
+```sh
+  - job_name: pushgateway
+    honor_labels: true
+    static_configs:
+      - targets: ["localhost:9091"]
+```
+### restart prometheus:
+```sh
+sudo systemctl restart prometheus
 ```
