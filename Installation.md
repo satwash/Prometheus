@@ -52,7 +52,10 @@ chown prometheus:prometheus /etc/prometheus/prometheus.yml
 ```sh
 vi /etc/systemd/system/prometheus.service
 ```
-
+### Create a service file for the prometheus :
+```sh
+sudo vi /etc/systemd/system/prometheus.service
+```
 ### prometheus.service contents:
 ```sh
 [Unit]
